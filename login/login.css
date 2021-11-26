@@ -8,6 +8,7 @@
 
 body {
    margin: 0;
+   overflow-x: hidden;
 }
 
 .body-wrapper {
@@ -16,7 +17,10 @@ body {
    display: flex;
    justify-content: center;
    align-items: center;
+   gap: 50px;
 }
+
+/* login part */
 
 .login-field {
    display: flex;
@@ -24,18 +28,43 @@ body {
    justify-content: center;
    align-items: center;
    height: 550px;
-   width: 450px;
+   width: 410px;
    box-shadow: 0px 1px 4px 2px rgba(0, 0, 0, 0.25);
    border-radius: 1px;
    position: relative;
+   animation: slideIn 1s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+   0% {
+      transform: translateX(100%);
+      opacity: 0;
+   }
+   100% {
+      transform: translateX(0);
+      opacity: 1;
+   }
+}
+
+@keyframes slideOut {
+   0% {
+      transform: translateX(0);
+      opacity: 1;
+   }
+   100% {
+      transform: translateX(-100%);
+      opacity: 0;
+   }
 }
 
 #email,
 #password {
+   padding: 0 15px;
    outline: none;
    border: none;
    box-shadow: 0px 1px 4px 2px rgba(0, 0, 0, 0.25);
    height: 40px;
+   font-size: 1.2rem;
 }
 
 .input-groups {
@@ -46,7 +75,9 @@ body {
 }
 
 .email,
-.password {
+.password,
+.fullname,
+.phone {
    display: flex;
    flex-direction: column;
    gap: 10px;
@@ -67,7 +98,7 @@ body {
    font: inherit;
    cursor: pointer;
    outline: inherit;
-   background-color: blue;
+   background-color: rgb(0, 166, 88);
    width: 320px;
    height: 40px;
    border-radius: 5px;
@@ -79,6 +110,77 @@ body {
    margin: 0;
 }
 
-.kmli-label{
-    transform: translateY(-50%);
- }
+.kmli-label {
+   display: inline-block;
+   transform: translateY(-5px);
+}
+
+.not-registered {
+   position: absolute;
+   bottom: 70px;
+}
+
+.register-now {
+   color: blue;
+   cursor: pointer;
+}
+
+.register-now:hover {
+   text-decoration: underline;
+}
+
+/* sign up part */
+
+.reg-field {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 550px;
+   width: 410px;
+   box-shadow: 0px 1px 4px 2px rgba(0, 0, 0, 0.25);
+   border-radius: 1px;
+   position: relative;
+}
+
+.fullname,
+.phone {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+
+#fullname,
+#phone {
+   outline: none;
+   border: none;
+   box-shadow: 0px 1px 4px 2px rgba(0, 0, 0, 0.25);
+   height: 40px;
+   padding: 0 15px;
+   font-size: 1.2rem;
+}
+
+.reg-field .input-groups {
+   gap: 15px;
+}
+
+.reg-field .email,
+.reg-field .password,
+.reg-field .fullname,
+.reg-field .phone {
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+}
+
+.reg-field .intro-name {
+   top: 50px;
+}
+
+.reg-field {
+   width: 650px;
+}
+
+.reg-input-groups {
+   transform: translateY(3%);
+}
